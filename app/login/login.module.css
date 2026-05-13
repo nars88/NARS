@@ -1,0 +1,153 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #d9d9d9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 760px;
+  height: 420px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.leftColumn {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-image: linear-gradient(rgba(8, 26, 70, 0.15), rgba(8, 26, 70, 0.15)), url("/login-bg-night.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding-top: 108px;
+  box-sizing: border-box;
+}
+
+.leftColumn::after {
+  content: "WELCOME";
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 7px;
+  font-weight: 500;
+}
+
+.rightColumn {
+  width: 50%;
+  height: 100%;
+  background: #ffffff;
+  padding: 52px 40px 26px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  direction: ltr;
+  text-align: start;
+}
+
+.title {
+  margin: 0 0 34px;
+  text-align: center;
+  color: #141414;
+  font-size: 48px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color-scheme: light;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  margin: 0;
+  text-align: left;
+  color: #666666;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.inputRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  height: 48px;
+  border-radius: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #c9c9c9;
+  padding: 0 2px;
+  box-sizing: border-box;
+}
+
+.icon {
+  color: #a6acc0;
+  flex: 0 0 auto;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: #3b354f;
+  font-size: 14px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #9999a8;
+}
+
+.button {
+  margin-top: 16px;
+  width: 100%;
+  min-height: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 10px;
+  background: #0a1f70;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+  line-height: 1;
+}
+
+.button:hover {
+  filter: brightness(1.05);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  margin: 4px 0 0;
+  color: #be123c;
+  font-size: 12px;
+  font-weight: 600;
+}

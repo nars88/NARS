@@ -1,0 +1,100 @@
+/**
+ * Tablet vs desktop shell visibility (matches JS: tablet 768–1366, desktop >1366).
+ * <768: treat as tablet layout (drawer + current tablet UI).
+ */
+
+@media (max-width: 767px) {
+  #desktop-layout {
+    display: none !important;
+  }
+  #tablet-layout {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1366px) {
+  #desktop-layout {
+    display: none !important;
+  }
+  #tablet-layout {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1367px) {
+  #tablet-layout {
+    display: none !important;
+  }
+  #desktop-layout {
+    display: block !important;
+  }
+}
+
+/* ارتفاع نافذة منخفض: ضغط الشريط الجانبي — CSS عادي (Tailwind max-height arbitrary يولّد @media غير صالح في بعض مسارات البناء) */
+@media (max-height: 768px) {
+  .nars-sidebar-inner {
+    gap: 0.375rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-brand {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-logo {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-sub {
+    margin-top: 0.125rem;
+    font-size: 10px;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-nav {
+    gap: 0.25rem;
+  }
+
+  .nars-sidebar-inner a.nars-nav-link,
+  .nars-sidebar-inner button.nars-nav-export {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    font-size: 12px;
+  }
+
+  .nars-sidebar-inner .nars-nav-link-icon {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-profile {
+    margin-top: 0.375rem;
+    padding: 0.5rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-profile-inner {
+    gap: 0.25rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-avatar {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-logout {
+    margin-top: 0.25rem;
+    padding-top: 0.125rem;
+  }
+
+  .nars-sidebar-inner .nars-sidebar-logout button {
+    min-height: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}

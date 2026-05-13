@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --nars-bg: #fdf4ff;
+  --nars-accent: #8b5cf6;
+  --nars-gold: #f59e0b;
+  --nars-mauve-tint: #f5e8ff;
+  --background: var(--nars-bg);
+  --foreground: #1e1b4b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-readex), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: var(--nars-bg);
+  color: var(--foreground);
+  font-family: var(--font-readex), ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+[role="button"] {
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease,
+    background-color 0.15s ease,
+    opacity 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* لوحات زجاجية — NARS: أبيض أوضح مع لمسة بنفسجية خفيفة */
+.nars-glass {
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  background:
+    linear-gradient(
+      168deg,
+      #ffffff 0%,
+      #fdfcfe 42%,
+      #f3ecff 100%
+    );
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--nars-accent) 22%, transparent);
+  box-shadow:
+    0 4px 6px color-mix(in oklab, #4c1d95 5%, transparent),
+    0 14px 40px color-mix(in oklab, #5b21b6 9%, transparent);
+}
+
+/* توافق مع الكود القديم */
+.glass-card {
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  background:
+    linear-gradient(
+      168deg,
+      #ffffff 0%,
+      #fdfcfe 42%,
+      #f3ecff 100%
+    );
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--nars-accent) 22%, transparent);
+  box-shadow:
+    0 4px 6px color-mix(in oklab, #4c1d95 5%, transparent),
+    0 14px 40px color-mix(in oklab, #5b21b6 9%, transparent);
+}
+
+/* وصل حراري 80mm — صفحة واحدة، هوامش الصفحة صفر (رؤوس/تذييلات المتصفح تُعطّل من نافذة الطباعة) */
+@page {
+  size: 80mm auto;
+  margin: 0;
+}
+
+@media print {
+  @page {
+    size: 80mm auto;
+    margin: 0;
+  }
+
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  #print-area {
+    display: flex !important;
+    flex-direction: column !important;
+    height: min-content !important;
+    max-height: none !important;
+    visibility: visible !important;
+    position: relative !important;
+    width: 80mm !important;
+    max-width: 80mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #print-area .print-slip {
+    display: flex !important;
+    flex-direction: column !important;
+    height: min-content !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  #print-area .print-slip-total {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  #print-area table,
+  #print-area tr,
+  #print-area thead,
+  #print-area tbody {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
