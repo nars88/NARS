@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { LandingPage } from "@/components/LandingPage";
 
+/** Static shell at the edge — marketing page has no server data requirements */
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "NARS — ذكاء أعمالك يبدأ من هنا",
   description:
