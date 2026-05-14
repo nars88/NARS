@@ -37,13 +37,6 @@ export async function updateSession(request: NextRequest) {
   const path = request.nextUrl.pathname;
   const isDashboardRoute = path.startsWith("/dashboard");
   const isLoginRoute = path === "/login";
-  const isHome = path === "/";
-
-  if (isHome) {
-    const url = request.nextUrl.clone();
-    url.pathname = user ? "/dashboard" : "/login";
-    return NextResponse.redirect(url);
-  }
 
   if (!user && isDashboardRoute) {
     const url = request.nextUrl.clone();

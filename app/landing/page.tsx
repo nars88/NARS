@@ -1,12 +1,6 @@
-import type { Metadata } from "next";
-import { LandingPage } from "@/components/LandingPage";
+import { permanentRedirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "NARS — ذكاء أعمالك يبدأ من هنا",
-  description:
-    "حوّل فوضى الرسائل إلى بيانات منظمة. NARS المساعد الذكي لإدارة الطلبات والطباعة والإحصائيات.",
-};
-
-export default function Landing() {
-  return <LandingPage />;
+/** العنوان القديم /landing يوجّه إلى الصفحة الرئيسية */
+export default function LandingRedirect() {
+  permanentRedirect("/");
 }

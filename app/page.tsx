@@ -1,15 +1,13 @@
-import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
+import type { Metadata } from "next";
+import { LandingPage } from "@/components/LandingPage";
 
-/** الصفحة الجذر توجّه للتطبيق الفعلي (وليس قالب create-next-app). */
-export default async function Home() {
-  try {
-    const supabase = await createClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-    redirect(user ? "/dashboard" : "/login");
-  } catch {
-    redirect("/login");
-  }
+export const metadata: Metadata = {
+  title: "NARS — ذكاء أعمالك يبدأ من هنا",
+  description:
+    "حوّل فوضى الرسائل إلى بيانات منظمة. NARS المساعد الذكي لإدارة الطلبات والطباعة والإحصائيات.",
+};
+
+/** الصفحة الرئيسية: صفحة تسويقية عامة؛ الدخول للتطبيق من /login */
+export default function Home() {
+  return <LandingPage />;
 }
